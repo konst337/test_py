@@ -20,4 +20,7 @@ while(True):
 
     except ValueError:
         print("Пожалуйста, вводите только числа")
+    except IndexError:
+        print("Адрес введен в неверном формате!")
+    
    
