@@ -20,8 +20,6 @@ try:
     mask_bytes = "{0:<08}.{1:<08}.{2:<08}.{3:<08}".format(int(mask1[0:8]), int(mask1[8:16]), int(mask1[16:24]), int(mask1[24::]))
     mask_bytes = mask_bytes.split(".")
     
-    #bytes = [mask1[i:i+8] for i in range(0, len(mask1), 8)]
-
     mask_temp = '''
     Mask:
     /{0:<8}
