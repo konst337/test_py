@@ -17,7 +17,10 @@ try:
 
     mask1 = "1"*mask
     mask1 ="{:<032}".format(mask1)
-    bytes = [mask1[i:i+8] for i in range(0, len(mask1), 8)]
+    mask_bytes = "{0:<08}.{1:<08}.{2:<08}.{3:<08}".format(int(mask1[0:8]), int(mask1[8:16]), int(mask1[16:24]), int(mask1[24::]))
+    mask_bytes = mask_bytes.split(".")
+    
+    #bytes = [mask1[i:i+8] for i in range(0, len(mask1), 8)]
 
     mask_temp = '''
     Mask:
@@ -25,6 +28,6 @@ try:
     {1:<8} {2:<8} {3:<8} {4:<8}
     {1:08b} {2:08b} {3:08b} {4:08b}
     '''
-    print(mask_temp.format(mask, int(bytes[0], 2), int(bytes[1], 2), int(bytes[2], 2), int(bytes[3],2)))
+    print(mask_temp.format(mask, int(mask_bytes[0], 2), int(mask_bytes[1], 2), int(mask_bytes[2], 2), int(mask_bytes[3],2)))
 except:
      print("You must enter address in the correct form!")
