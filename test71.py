@@ -1,4 +1,4 @@
-file = open('C:\\Users\\konst\Desktop\\repo\\ospf.txt', 'r')
+file = open('D:\\repo_py\\test_py\\ospf.txt', 'r')
 cfg = []
 for i in file:
     cfg += file.readlines()
