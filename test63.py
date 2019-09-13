@@ -20,10 +20,24 @@ trunk = {
         '0/4': ['del', '17']
     }
 
-for intf, vlan in access.items():
+
+for num, port in trunk.items():
+    print('interface FastEthernet' + num)
+    for command in trunk_template:
+        if command.endswith('vlan'):
+            if num == "0/1":
+                print(' {} {}'.format(command, ",".join(port)).replace("add,", "add "))
+            elif num == "0/2":
+                print(' {} {}'.format(command, ",".join(port)).replace("only,", ""))
+            else: 
+                print(' {} {}'.format(command, ",".join(port)).replace("del,", "remove "))
+        else:
+            print(' {}'.format(command))
+
+''' for intf, vlan in access.items():
     print('interface FastEthernet' + intf)
     for command in access_template:
         if command.endswith('access vlan'):
             print(' {} {}'.format(command, vlan))
         else:
-            print(' {}'.format(command))
+            print(' {}'.format(command)) '''
