@@ -8,12 +8,18 @@ try:
     mask = int(mask)
     ip1 = ip1.split('.')
 
+    net_byte = """{0:08b}{1:08b}{2:08b}{3:08b}"""
+    nethex = net_byte.format(int(ip1[0]), int(ip1[1]), int(ip1[2]), int(ip1[3]))
+    nethex_mask = "{0:<032}".format(nethex[:mask])
+    net_bytes = "{0:<08}.{1:<08}.{2:<08}.{3:<08}".format(int(nethex_mask[0:8]), int(nethex_mask[8:16]), int(nethex_mask[16:24]), int(nethex_mask[24::]))
+    net_bytes = net_bytes.split(".")
+        
     net_temp = """
     Network:
     {0:<8} {1:<8} {2:<8} {3:<8}
     {0:08b} {1:08b} {2:08b} {3:08b}
     """
-    print(net_temp.format(int(ip1[0]), int(ip1[1]), int(ip1[2]), int(ip1[3])))
+    print(net_temp.format(int(net_bytes[0], 2), int(net_bytes[1], 2), int(net_bytes[2], 2), int(net_bytes[3], 2)))
 
     mask1 = "1"*mask
     mask1 ="{:<032}".format(mask1)
