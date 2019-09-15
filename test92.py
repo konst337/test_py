@@ -9,14 +9,13 @@ trunk_config = {
     'FastEthernet0/4': [17]
 }
 
-print(trunk_mode_template[2])
 
 def genConf(trunk_temp, trunk_cfg):
     for face, num in trunk_cfg.items():
         print(face)
         for command in trunk_temp:
             if "allowed" in command:
-                print(command, num)
+                print(command, *num)
             else: print(command)
 
 
