@@ -29,8 +29,5 @@ def genConf(trunk_temp, trunk_cfg):
 
     return dick
 
-
-
-
 dct = genConf(trunk_mode_template, trunk_config)
 print(dct)

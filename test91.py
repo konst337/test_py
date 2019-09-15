@@ -26,8 +26,9 @@ def generate_access_config(intf_vlan_mapping, access_template, psecurity = None)
             if "vlan" in command:
                 print("{0} {1}".format(command, port))
                 temp.append("{0} {1}".format(command, port))
-            print(command)
-            temp.append(command)
+            else:
+                print(command)
+                temp.append(command)
         if psecurity != None:
             for i in psecurity:
                 print(i)
@@ -35,3 +36,4 @@ def generate_access_config(intf_vlan_mapping, access_template, psecurity = None)
     return temp
 
 template = generate_access_config(access_config, access_mode_template, port_security_template)
+print(template)
