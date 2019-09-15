@@ -33,5 +33,6 @@ try:
     {1:08b} {2:08b} {3:08b} {4:08b}
     '''
     print(mask_temp.format(mask, int(mask_bytes[0], 2), int(mask_bytes[1], 2), int(mask_bytes[2], 2), int(mask_bytes[3],2)))
+    
 except:
      print("You must enter address in the correct form!")
