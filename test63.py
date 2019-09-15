@@ -20,7 +20,6 @@ trunk = {
         '0/4': ['del', '17']
     }
 
-
 for num, port in trunk.items():
     print('interface FastEthernet' + num)
     for command in trunk_template:
