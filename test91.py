@@ -23,7 +23,7 @@ def generate_access_config(intf_vlan_mapping, access_template, psecurity = None)
         temp.append(face)
         print(face)
         for command in access_template:
-            if command.find("vlan") == True:
+            if "vlan" in command:
                 print("{0} {1}".format(command, port))
                 temp.append("{0} {1}".format(command, port))
             print(command)
