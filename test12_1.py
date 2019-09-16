@@ -2,21 +2,18 @@ import ipaddress
 import subprocess
 
 def ping_ip(ip_address):
-    """
-    Ping IP address and return tuple:
-    On success:
-        * True
-        * command output (stdout)
-    On failure:
-        * False
-        * error output (stderr)
-    """
-    reply = subprocess.run(['ping', ip_address])
-    if reply.returncode == 0:
-        return True
-    else:
-        return False
-
-print(ping_ip('8.8.8.8'))
-print(ping_ip('a'))
-print(ping_ip("192.168.1.1"))
+    true_list = []
+    false_list = []
+    tupoy = tuple()
+    for ip in ip_address:
+        reply = subprocess.run(['ping', ip])
+        if reply.returncode == 0:
+            true_list.append(ip)
+        else:
+            false_list.append(ip)
+    tupoy = (true_list, false_list)
+    return tupoy
+            
+ips = ["192.168.1.1", "8.8.8.8", "a", "87.250.250.242", "173.194.73.100", "14.88.69.96"]
+test = ping_ip(ips)
+print(test)
