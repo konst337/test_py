@@ -20,10 +20,6 @@ def get_int_vlan_map(file_name):
     cfg = []
     commands = []
     dict1 = {}
-    ''' dict_acces = {}
-    dict_trunck = {}
-    tuple1 = tuple() '''
-
     for line in f:
         if (ignore_command(line, ignore) == False) and (line.find('!') == -1):
             cfg.append(line.rstrip())
@@ -43,7 +39,9 @@ def get_int_vlan_map(file_name):
             commands.append(line)    
 
     for key, itm in dict1.items():
-        print(key, itm)        
+        print(key, itm)
+    return dict1        
     
-   
-get_int_vlan_map("D:\\repo_py\\test_py\\config_sw3.txt")
+
+kek = get_int_vlan_map("D:\\repo_py\\test_py\\config_sw3.txt")
+print(kek)
