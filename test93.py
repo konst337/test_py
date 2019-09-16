@@ -1,20 +1,30 @@
-def config_filename():#file_name
-    with open("D:\\repo_py\\test_py\\config_sw3.txt") as f:
-        for line in f:
-            str_all_interface, str_access_vlan, str_trunk_vlan = '', '', ''
-            if line.find('FastEthernet') != -1:
-                str_all_interface = line
-                str_all_interface = str_all_interface[str_all_interface.find('FastEthernet')::]
-                print(str_all_interface)
+def get_int_vlan_map(file_name):
+    f = open(file_name, "r")
+    cfg = []
+    dict_acces = {}
+    dict_trunck = {}
+    tuple1 = tuple()
 
-            elif line.find('access vlan') != -1:
-                str_access_vlan = line
-                str_access_vlan = str_access_vlan[str_access_vlan.find('vlan')::].replace('vlan ', '')
-                print(str_access_vlan)
+    for line in f:
+        cfg += f.readlines()
+      
+    for line in cfg:
+        if line.find("FastEthernet") != -1:
+            face = line[line.find("FastEthernet")::].strip()
+        elif line.find("access vlan") != -1:
+            buff = line[line.find("access vlan")::].replace("access vlan", "").strip()
+            dict_acces[face] = buff
+        elif line.find("vlan") != -1:
+            buff = line[line.find("vlan")::].replace("vlan", "").strip()
+            dict_trunck[face] = buff
+    tuple1 = (dict_acces, dict_trunck)
+    return tuple1
+    
 
-            elif line.find('allowed vlan') != -1:
-                str_trunk_vlan = line
-                str_trunk_vlan = str_trunk_vlan[str_trunk_vlan.find('vlan')::].replace('vlan ', '')
-                print(str_trunk_vlan)
 
-config_filename()
+            
+
+  
+
+kek = get_int_vlan_map("D:\\repo_py\\test_py\\config_sw3.txt")
+print(kek)
