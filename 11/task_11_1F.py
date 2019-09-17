@@ -20,6 +20,6 @@ def parse_cdp_neighbors(command_output):
         
 
 if __name__ == "__main__":
-    lol =parse_cdp_neighbors(buff)
+    lol = parse_cdp_neighbors(buff)
     for line in lol.items():
         print(line)
