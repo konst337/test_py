@@ -43,5 +43,5 @@ def get_int_vlan_map(file_name):
     return dict1        
     
 if __name__ == '__main__':
-    kek = get_int_vlan_map("D:\\repo_py\\test_py\\config_sw3.txt")
+    kek = get_int_vlan_map("C:\\repo_py\\test_py\\config_sw3.txt")
     print(kek)

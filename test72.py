@@ -9,9 +9,10 @@ filer = open(name2, "w")
 for i in file:
     if (not (i.startswith("!"))):
         if (i.find(ignore[0]) == -1) and (i.find(ignore[1]) == -1) and (i.find(ignore[2]) == -1): 
-            print(i.rstrip().strip())
+            print(i.strip())
             filer.writelines(i)
-        
+file.close()
+filer.close()
         
                
     

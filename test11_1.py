@@ -1,7 +1,10 @@
-file = open("D:\\repo_py\\test_py\\sh_cdp_n_sw1.txt", "r")
+file = open("C:\\repo_py\\test_py\\sh_cdp_n_sw1.txt", "r")
 buff = file.read()
 def parse_cdp_neighbors(command_output):
     dict1 = {}
+    sw = command_output[:command_output.find(">")].rstrip().split()
+    sw = ''.join(sw)
+    
     command_output = command_output[command_output.find("R1")::].rstrip().split("\n")
     for i in range(len(command_output)):
         command_output[i] = command_output[i].split()
@@ -10,7 +13,7 @@ def parse_cdp_neighbors(command_output):
         dev, inter, num, *other, inter1, num1 = command_output[i]
         inter = inter + num
         inter1 = inter1 + num1
-        dict1["SW1", inter] = dev, inter1
+        dict1[sw, inter] = dev, inter1
 
     return dict1
         

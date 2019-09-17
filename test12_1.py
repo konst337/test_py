@@ -6,7 +6,7 @@ def ping_ip(ip_address):
     false_list = []
     tupoy = tuple()
     for ip in ip_address:
-        reply = subprocess.run(['ping', ip])
+        reply = subprocess.run(['ping', ip], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
         if reply.returncode == 0:
             true_list.append(ip)
         else:

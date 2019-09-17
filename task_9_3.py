@@ -5,8 +5,8 @@ def get_int_vlan_map(file_name):
     dict_trunck = {}
     tuple1 = tuple()
 
-    for line in f:
-        cfg += f.readlines()
+    
+    cfg = f.readlines()
       
     for line in cfg:
         if line.find("FastEthernet") != -1:
@@ -26,5 +26,5 @@ def get_int_vlan_map(file_name):
 
   
 
-kek = get_int_vlan_map("D:\\repo_py\\test_py\\config_sw3.txt")
+kek = get_int_vlan_map("C:\\repo_py\\test_py\\config_sw3.txt")
 print(kek)

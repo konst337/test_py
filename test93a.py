@@ -32,5 +32,5 @@ def get_int_vlan_map(file_name):
 
   
 
-kek = get_int_vlan_map("D:\\repo_py\\test_py\\config_sw4.txt")
+kek = get_int_vlan_map("C:\\repo_py\\test_py\\config_sw4.txt")
 print(kek)

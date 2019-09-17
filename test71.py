@@ -1,9 +1,8 @@
-file = open('D:\\repo_py\\test_py\\ospf.txt', 'r')
-cfg = []
-for i in file:
-    cfg += file.readlines()
+file = open('C:\\repo_py\\test_py\\ospf.txt', 'r')
+
+cfg = file.readlines()
 print(cfg)
-templ = ['Protocol:', 'Prefix:', 'AD/Metric:', 'Next-Hop:', 'Last update:', 'Outbound Interface', ' ']
+templ = ['Protocol:', 'Prefix:', 'AD/Metric:', 'Next-Hop:', 'Last update:', 'Outbound Interface']
 
 for i in range(len(cfg)):
     cfg[i] = cfg[i].replace("O", "OSPF")
